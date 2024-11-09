@@ -11,7 +11,7 @@ const ENDPOINT = props.ENDPOINT_API ?? ''
 const titulo = ref('')
 const sinopsis = ref('')
 const director = ref('')
-const categoria = ref('')
+const clasificacion = ref('')
 const temporadas = ref('')
 const fechaEstreno = ref('')
 
@@ -21,7 +21,7 @@ async function crearSerie() {
       titulo: titulo.value,
       sinopsis: sinopsis.value,
       director: director.value,
-      categoria: categoria.value,
+      clasificacion: clasificacion.value,
       temporadas: parseInt(temporadas.value),
       fechaEstreno: fechaEstreno.value ? new Date(fechaEstreno.value) : null
     })
@@ -69,12 +69,20 @@ function goBack() {
           <input type="text" class="form-control" id="director" v-model="director" required />
         </div>
       </div>
-      <div class="mb-3 row">
-        <label for="categoria" class="col-sm-2 col-form-label">Categoría</label>
+
+
+     <div class="mb-3 row">
+        <label for="clasificacion" class="col-sm-2 col-form-label">Clasificación</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="categoria" v-model="categoria" required />
+        <select id="clasificacion" class="form-control" v-model="clasificacion" required>
+        <option value="A">Todo público</option>
+        <option value="B">Para niños</option>
+        <option value="C">Público mayor a 12 años</option>
+        </select>
         </div>
       </div>
+
+
       <div class="mb-3 row">
         <label for="temporadas" class="col-sm-2 col-form-label">Temporadas</label>
         <div class="col-sm-10">

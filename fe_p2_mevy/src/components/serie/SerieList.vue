@@ -55,7 +55,7 @@ onMounted(() => {
             <th scope="col">Título</th>
             <th scope="col">Sinopsis</th>
             <th scope="col">Director</th>
-            <th scope="col">Categoria</th>
+            <th scope="col">Clasificacion</th>
             <th scope="col">Temporadas</th>
             <th scope="col">Fecha de Estreno</th>
             <th scope="col">Acciones</th>
@@ -67,7 +67,7 @@ onMounted(() => {
             <td>{{ serie.titulo }}</td>
             <td>{{ serie.sinopsis }}</td>
             <td>{{ serie.director }}</td>
-            <td>{{ serie.categoria }}</td>
+            <td>{{ serie.clasificacion }}</td>
             <td>{{ serie.temporadas }}</td>
             <td>{{ new Date(serie.fechaEstreno).toLocaleDateString() }}</td>
             <td>

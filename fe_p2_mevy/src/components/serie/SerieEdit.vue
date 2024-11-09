@@ -11,6 +11,7 @@ const ENDPOINT = props.ENDPOINT_API ?? ''
 const titulo = ref('')
 const sinopsis = ref('')
 const director = ref('')
+const clasificacion = ref('')
 const temporadas = ref('')
 const fechaEstreno = ref('')
 const router = useRouter()
@@ -23,6 +24,7 @@ async function editarSerie() {
       titulo: titulo.value,
       sinopsis: sinopsis.value,
       director: director.value,
+      clasificacion: clasificacion.value,
       temporadas: temporadas.value,
       fechaEstreno: fechaEstreno.value,
     
@@ -41,6 +43,7 @@ async function getSerie() {
     titulo.value = response.data.titulo
     sinopsis.value = response.data.sinopsis
     director.value = response.data.director
+    clasificacion.value = response.data.clasificacion
     temporadas.value = response.data.temporadas
     fechaEstreno.value = response.data.fecha_estreno
     console.log('Fetched series data:', response.data)
@@ -97,6 +100,20 @@ onMounted(() => {
           <input type="text" class="form-control" id="director" v-model="director" required />
         </div>
       </div>
+
+
+      <div class="mb-3 row">
+        <label for="clasificacion" class="col-sm-2 col-form-label">Clasificación</label>
+        <div class="col-sm-10">
+        <select id="clasificacion" class="form-control" v-model="clasificacion" required>
+        <option value="A">Todo público</option>
+        <option value="B">Para niños</option>
+        <option value="C">Público mayor a 12 años</option>
+        </select>
+        </div>
+      </div>
+
+
       <div class="mb-3 row">
         <label for="temporadas" class="col-sm-2 col-form-label">Temporadas</label>
         <div class="col-sm-10">
